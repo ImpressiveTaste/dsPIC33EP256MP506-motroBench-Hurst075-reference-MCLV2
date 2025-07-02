@@ -1,6 +1,6 @@
 # dsPIC33 MotorBench Reference Projects
 
-This repository contains reference MPLAB X projects targeting the **dsPIC33EP256MC506** microcontroller. The projects were generated with MPLAB XIDE 6.23 and MPLAB Code Configuratior tool and demonstrate basic peripheral usage of the PWM on the **MCLV‑2** development board.
+This repository contains reference MPLAB X projects targeting the **dsPIC33EP256MC506** microcontroller. The projects were generated with MPLAB XIDE 6.25 and MPLAB Code Configuratior tool and demonstrate basic peripheral usage of the PWM on the **MCLV‑2** development board.
 
 ## Project
 
