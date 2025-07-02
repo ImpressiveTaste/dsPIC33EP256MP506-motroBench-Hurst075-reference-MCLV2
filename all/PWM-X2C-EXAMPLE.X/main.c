@@ -31,6 +31,8 @@ static void APP_PWM_Initialize(void)
 {
     /* 1. Periodo per ~1 kHz */
     perCounts = (uint16_t)((FCY / (PWM_PRESCALE * CARRIER_HZ)) - 1U);
+    PTCON2bits.PCLKDIV = 6;             // 1:64 prescaler
+    PWM_MasterPeriodSet(perCounts);     // match master time base
 
     /* 2. Carico periodo e duty iniziale (0 %) */
     PWM_PeriodSet   (PWM_GENERATOR_1, perCounts);      // PHASE1
@@ -74,7 +76,7 @@ int main(void)
     while (1)
     {
         APP_BreatheUpdate();    // sfumatura continua
-        /* Eventuali altre attivit‡ ? */
+        /* Eventuali altre attivit√† ? */
     }
     /* Non si raggiunge mai */
 }
