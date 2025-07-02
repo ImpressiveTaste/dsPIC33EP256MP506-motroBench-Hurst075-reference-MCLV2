@@ -94,15 +94,13 @@ int main(void)
     while (1)
     {
         /*
-         * Simple duty-cycle toggle to verify PWM operation.
-         * The duty is set to 100% for half a second and then
-         * forced to 0% for another half second.
+         * Drive PWM1 with a "breathe" pattern.  The helper
+         * routine updates the duty-cycle and waits
+         * STEP_DELAY_MS between each step.  Calling the blink
+         * update on every step keeps the debug LED toggling at
+         * the desired rate.
          */
-        PWM_DutyCycleSet(PWM_GENERATOR_1, perCounts);
-        __delay_ms(500);
-        PWM_DutyCycleSet(PWM_GENERATOR_1, 0U);
-        __delay_ms(500);
-
+        APP_BreatheUpdate();
         APP_BlinkUpdate();      // lampeggio LED1
     }
 
