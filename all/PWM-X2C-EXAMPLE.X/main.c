@@ -93,9 +93,18 @@ int main(void)
 
     while (1)
     {
-        APP_BreatheUpdate();    // sfumatura continua
+        /*
+         * Simple duty-cycle toggle to verify PWM operation.
+         * The duty is set to 100% for half a second and then
+         * forced to 0% for another half second.
+         */
+        PWM_DutyCycleSet(PWM_GENERATOR_1, perCounts);
+        __delay_ms(500);
+        PWM_DutyCycleSet(PWM_GENERATOR_1, 0U);
+        __delay_ms(500);
+
         APP_BlinkUpdate();      // lampeggio LED1
-        /* Eventuali altre attività ? */
     }
+
     /* Non si raggiunge mai */
 }
